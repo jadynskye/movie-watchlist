@@ -5,7 +5,7 @@ Reel List is a web app for keeping track of movies you want to watch. After crea
 
 **Live app:** https://reellist.netlify.app
 
-**Demo video:** [_coming soon_](https://youtu.be/XYc1K30UJaE)
+**Demo video:** (https://youtu.be/XYc1K30UJaE)
 
 ## What the app does
 
