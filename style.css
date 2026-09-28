@@ -115,3 +115,8 @@ input, select {
   .stub { border-left: none; border-top: 2px dashed #c9b79c; padding: .75rem 0 0; justify-content: flex-start; }
   .edit-fields { grid-template-columns: 1fr; }
 }
+
+/* ---------- Search & sort ---------- */
+.tools { display: grid; grid-template-columns: 1fr auto; gap: .5rem; margin-bottom: 1rem; }
+.tools select { width: auto; }
+@media (max-width: 600px) { .tools { grid-template-columns: 1fr; } .tools select { width: 100%; } }

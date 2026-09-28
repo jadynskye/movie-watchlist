@@ -142,13 +142,32 @@ document.querySelectorAll(".filter").forEach((btn) =>
   })
 );
 
+$("search").addEventListener("input", render);
+$("sort").addEventListener("change", render);
+
 function render() {
   const list = $("movie-list");
   list.innerHTML = "";
 
-  const shown = movies.filter((m) =>
+  // Filter by watched status
+  let shown = movies.filter((m) =>
     filter === "all" ? true : filter === "watched" ? m.watched : !m.watched
   );
+
+  // Search by title or genre
+  const q = $("search").value.trim().toLowerCase();
+  if (q) {
+    shown = shown.filter((m) =>
+      m.title.toLowerCase().includes(q) || (m.genre || "").toLowerCase().includes(q)
+    );
+  }
+
+  // Sort
+  const sort = $("sort").value;
+  if (sort === "title") shown.sort((a, b) => a.title.localeCompare(b.title));
+  if (sort === "year") shown.sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
+  if (sort === "rating") shown.sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
+  // "newest" keeps the database order (created_at, newest first)
 
   const watchedCount = movies.filter((m) => m.watched).length;
   $("count").textContent = `${watchedCount} of ${movies.length} watched`;

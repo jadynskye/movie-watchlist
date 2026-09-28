@@ -56,6 +56,16 @@
         <span id="count" class="count"></span>
       </div>
 
+      <div class="tools">
+        <input id="search" type="search" placeholder="Search by title or genre" aria-label="Search movies" />
+        <select id="sort" aria-label="Sort movies">
+          <option value="newest">Newest added</option>
+          <option value="title">Title A–Z</option>
+          <option value="year">Year (newest first)</option>
+          <option value="rating">Highest rated</option>
+        </select>
+      </div>
+
       <p id="app-message" class="message" role="alert"></p>
       <ul id="movie-list" class="movie-list"></ul>
       <p id="empty" class="empty" hidden>Nothing here yet. Add a movie you want to see.</p>
